@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Diabetic Retinopathy</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/icon/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles1.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                                <div class="left-content d-flex align-items-center">
+                                    <div class="logo mr-30">
+                                        <a href="#  ">
+                                            <img src="{{ url_for('static', filename='img/logo/logo.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                    </div></div></div></div></div></div></div>
+                                    <div class="container">
+                                        <h1>Diabetic Retinopathy Prediction</h1>
+
+                                        <label for="name">Enter Your Name:</label>
+                                        <input type="text" id="name" placeholder="Your Name">
+
+                                        <label for="file">Upload an Image:</label>
+                                        <input type="file" id="file">
+
+                                        <button onclick="uploadAndPredict()">Predict</button>
+
+                                        <h3 id="result"></h3>
+                                        <button id="downloadReport" style="display: none;"
+                                            onclick="downloadReport()">Download Report</button>
+                                    </div>
+
+                                    <script src="{{ url_for('static', filename='js/script1.js') }}"></script>
+
+</body>
+
+</html>

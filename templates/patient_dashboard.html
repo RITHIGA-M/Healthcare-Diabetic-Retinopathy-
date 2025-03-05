@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Diabetic Retinopathy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<script type="text/javascript">
+    const firebaseConfig = {
+      "apiKey": "AIzaSyBUc09vVr13lufna3PcRKIvkScJMmL84F8",
+      "authDomain": "diabetic-retinopathy-d9ad0.firebaseapp.com",
+      "databaseURL": "https://diabetic-retinopathy-d9ad0-default-rtdb.firebaseio.com",
+      "projectId": "diabetic-retinopathy-d9ad0",
+      "storageBucket": "diabetic-retinopathy-d9ad0.appspot.com",
+      "messagingSenderId": "784479554899",
+      "appId": "1:784479554899:web:741bb70f664687c789e5a6",
+      "measurementId": "G-T9E5GHPJ65"
+    };
+firebase = pyrebase.initialize_app(firebaseConfig)
+db = firebase.database()
+</script>
+<body>
+    
+    <!-- Header Section -->
+    <header class="bg-primary text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h2>Diabetic Retinopathy Patient Dashboard</h2>
+            <a href="/" class="btn btn-danger">Logout</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h4 class="text-center">Welcome, {{ patient_name }}</h4>
+
+        <!-- DR Prediction Display -->
+        <div class="alert alert-info text-center">
+            <h4>You have been diagnosed with: <strong>{{ dr }}</strong></h4>
+        </div>
+
+        <!-- Upload & Predict DR -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Diabetic Retinopathy Prediction</h5>
+                <p>Upload a retinal image to predict the severity of Diabetic Retinopathy.</p>
+                <form action="/predict" method="post" enctype="multipart/form-data">
+                    <input type="file" name="retina_image" class="form-control" required>
+                    <button type="submit" class="btn btn-primary mt-2">Predict</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Prediction History & Reports -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Prediction History & Reports</h5>
+                <ul class="list-group">
+                    {% for record in history %}
+                    <li class="list-group-item">
+                        <strong>{{ record.date }}</strong>: {{ record.result }}
+                        <a href="{{ record.report_url }}" class="btn btn-sm btn-secondary">Download Report</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Retina Image Visualization & Heatmaps -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Retina Image Visualization & Heatmaps</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Original Retinal Image</h6>
+                        <img src="C:\Users\rithi\Downloads\Diabetic_Retinopathy_Project\Diabetic_Retinopathy_Project\static\img\icon\eye.png" class="img-fluid" alt="Original Retina Image">
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Heatmap - Highlighting Affected Areas</h6>
+                        <img src="C:\Users\rithi\Downloads\Diabetic_Retinopathy_Project\Diabetic_Retinopathy_Project\static\img\icon\heart-rate.png" class="img-fluid" alt="Heatmap Visualization">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
