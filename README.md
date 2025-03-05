@@ -8,12 +8,18 @@ Healthcare(Diabetic Retinopathy) is a web-app that uses a range of cutting-edge 
 
 According to studies, simple report organisation leads to greater treatment efficiency. Furthermore, if a medical text report is unstructured, doctors are more likely to overlook vital information from their patients, therefore this summarizer ensures that no information is lost in the process of interacting with a doctor. As a result, a report is prepared based on the diagnosis results, which may be accessible by both the doctor and the patient for evaluation.
 
-Requirements:
+Requirements:</br></br>
 
---> Python: 3.9.7 version
---> Visual studio code
---> Jupyter notebook
---> Firebase console(database stored)
+--> Python: 3.9.7 version</br>
+--> Visual studio code</br>
+--> Jupyter notebook</br>
+--> Firebase console(database stored)</br>
+
+How to run the code:</br></br>
+
+-->python app.py</br>
+-->streamlit run app1.py</br>
+-->streamlit run app2.py</br>
 
 
 
